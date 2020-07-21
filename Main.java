@@ -1,6 +1,6 @@
 public class Main {
 	public static void main(String[] args) {
-		System.out.println("あなたの誕生日を８桁で入力してください。");
+		System.out.println("Please input your DOB to 8 digits");
 		int input = new java.util.Scanner(System.in).nextInt();
 		String str = Integer.toString(input);   //入力された数値を文字列に変換
 		String[] resultArray = new String[8];
@@ -10,7 +10,7 @@ public class Main {
 		  numbers[i] = Integer.parseInt(resultArray[i]);  //文字列を数値に戻す
 		}
 		int result = calc(numbers[0],numbers[1],numbers[2],numbers[3],numbers[4],numbers[5],numbers[6],numbers[7]);
-		System.out.println("あなたの番号は"+result+"です。");
+		System.out.println("your number is"+result+".");
 	}
 	public static int calc(int a, int b, int c, int d, int e, int f, int g, int i) {
 	    int result1 = a + b + c + d + e + f + g + i;
