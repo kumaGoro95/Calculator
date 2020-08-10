@@ -1,45 +1,45 @@
-public class Main {
-	public static void main(String[] args) {
-		System.out.println("Please input your DOB to 8 digits");
-		int input = new java.util.Scanner(System.in).nextInt();
-		String str = Integer.toString(input);   //入力された数値を文字列に変換
-		String[] resultArray = new String[8];
-		resultArray = str.split("");   //文字列を分割して配列化する
-		int[] numbers = new int[8];
-		for(int i = 0; i < resultArray.length; i++){
-		  numbers[i] = Integer.parseInt(resultArray[i]);  //文字列を数値に戻す
-		}
-		int result = calc(numbers[0],numbers[1],numbers[2],numbers[3],numbers[4],numbers[5],numbers[6],numbers[7]);
-		System.out.println("your number is"+result+".");
-	}
-	public static int calc(int a, int b, int c, int d, int e, int f, int g, int i) {
-	    int result1 = a + b + c + d + e + f + g + i;
-		if (result1 < 10){  //初回の結果が１桁の場合はここで終了
-			return result1;
-		} else {   //初回の計算結果が2桁になった場合は、もう一度計算する
-	        String str2 = Integer.toString(result1);
-	        String[] resultArray2 = new String[2];
-	        resultArray2 = str2.split("");
-	        int j = Integer.parseInt(resultArray2[0]);
-	        int k = Integer.parseInt(resultArray2[1]);
-	        int result2 = j + k;
-			if ( result2 <= 9 ){ //2回目の結果が1桁ならここで終了
-				return result2;
-			}else {  //そうでない場合は、もう一度計算
-				int result3 = 0;
-				switch(result2){
-				case 10:
-					result3 = 1;
-					break;
-				case 11:
-					result3 = 2;
-					break;
-				case 12:
-					result3 = 3;
-					break;
-				}
-				return result3;
-			}
-		}
-	}
+import java.math.BigDecimal;
+import java.util.Scanner;
+
+public class Main{
+  public static void main(String [] args){
+    System.out.println("---------");
+    System.out.println("電卓アプリ");
+    System.out.println("---------");
+    System.out.println("最初の数字を入力してください");
+    Scanner scan1 = new Scanner(System.in);
+    Double double1 = scan1.nextDouble();
+    BigDecimal bigd1 = BigDecimal.valueOf(double1);
+    System.out.println("演算子は？");
+    System.out.println("[ 1: + 2: - 3: * 4: / ]");
+    Scanner scan3 = new Scanner(System.in);
+    String input3 = scan3.nextLine();
+    int opera = Integer.parseInt(input3);
+    System.out.println("2つ目の数字を入力してください");
+    Scanner scan2 = new Scanner(System.in);
+    Double double2 = scan2.nextDouble();
+    BigDecimal bigd2 = BigDecimal.valueOf(double2);
+    BigDecimal bigd3 = bigd1.add(bigd2);
+    Calc(opera, bigd1, bigd2);
+  }
+  public static void Calc(int opera, BigDecimal bigd1, BigDecimal bigd2){
+    switch(opera){
+      case 1:
+        BigDecimal result1 = bigd1.add(bigd2);
+        System.out.println(bigd1+" + "+bigd2+" = "+result1);
+        break;
+      case 2:
+        BigDecimal result2 = bigd1.subtract(bigd2);
+        System.out.println(bigd1+" - "+bigd2+" = "+result2);
+        break;
+      case 3:
+        BigDecimal result3 = bigd1.multiply(bigd2);
+        System.out.println(bigd1+" * "+bigd2+" = "+result3);
+        break;
+      case 4:
+        BigDecimal result4 = bigd1.divide(bigd2, 5, BigDecimal.ROUND_DOWN);
+        System.out.println(bigd1+" / "+bigd2+" = "+result4);
+        break;
+    }
+  }
 }
