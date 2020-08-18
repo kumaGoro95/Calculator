@@ -24,7 +24,7 @@ public class Calc{
     for(int i = 0; i <= operaArr.size();){
       if(operaArr.isEmpty()){
         break;
-      }else if(operaArr.get(i) == 1){
+      }else if(operaArr.get(i) == '+'){
         BigDecimal addResult = numberArr.get(i).add(numberArr.get(i+1));
         numberArr.set(i, addResult);
         numberArr.remove(i+1);
@@ -39,8 +39,8 @@ public class Calc{
   }
 
   public void multiply(){
-    for(int i = 0; i < operaArr.size(); i++){
-      int index = operaArr.indexOf(3);
+    for(int i = 0; i <= operaArr.size(); i++){
+      int index = operaArr.indexOf('×');
       if(index == -1){
         break;
       }
@@ -52,8 +52,8 @@ public class Calc{
   }
 
   public void divide(){
-    for(int i = 0; i < operaArr.size(); i++){
-      int index = operaArr.indexOf(4);
+    for(int i = 0; i <= operaArr.size(); i++){
+      int index = operaArr.indexOf('÷');
       if(index == -1){
         break;
       }
@@ -67,6 +67,7 @@ public class Calc{
 
   public void resultPrint(){
     System.out.print(numberArr.get(0));
+    System.out.println();
   }
 
 }

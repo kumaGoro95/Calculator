@@ -22,6 +22,11 @@ public class Print{
 
   public void numberPrint(){
     operaSet();
+    System.out.println();
+    System.out.println("---------");
+    System.out.println("計算結果");
+    System.out.println("---------");
+    System.out.println();
     for(int j = 0; j < operaArr.size(); j++){
       System.out.print(numberArr.get(j)+" ");
       System.out.print(operaArr.get(j)+" ");
