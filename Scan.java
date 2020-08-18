@@ -3,8 +3,8 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Scan{
-    private ArrayList<BigDecimal> numberArr = new ArrayList<>();
-    private ArrayList<Character> operaArr = new ArrayList<>();
+    private ArrayList<BigDecimal> numberArr = new ArrayList<>(); //数字を入れる配列
+    private ArrayList<Character> operaArr = new ArrayList<>();  //演算子を入れる配列
 
 
     public ArrayList<BigDecimal> getNumberArr(){

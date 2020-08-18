@@ -36,7 +36,7 @@ public class Print{
   }
 
 
-  public void operaSet(){
+  public void operaSet(){  //数字で選択した演算子を記号に変換する
     for(int i = 0; i < operaArr.size(); i++){
       int index = operaArr.indexOf('1');
       if(index == -1){
